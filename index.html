@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero EXPLOIT</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:system-ui, -apple-system, sans-serif;
+}
+
+body{
+    background:#000; /* FULL HITAM */
+    color:white;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:100%;
+    max-width:380px;
+    text-align:center;
+    padding:25px;
+}
+
+/* Logo */
+.logo{
+    width:85px;
+    height:85px;
+    margin:auto;
+    border-radius:20px;
+    border:2px solid #8b3dff;
+    box-shadow:0 0 15px #8b3dff;
+    overflow:hidden;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Title */
+h1{
+    margin-top:20px;
+    font-size:24px;
+    font-weight:600;
+}
+
+.subtitle{
+    font-size:13px;
+    color:#aaa;
+    margin:8px 0 30px;
+}
+
+/* Buttons */
+.btn{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border-radius:30px;
+    font-size:14px;
+    border:none;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.btn-primary{
+    background:#8b3dff;
+    color:white;
+}
+
+.btn-outline{
+    background:transparent;
+    border:2px solid #8b3dff;
+    color:white;
+}
+
+.btn:active{
+    transform:scale(0.97);
+}
+
+/* Telegram Circle */
+.telegram-circle{
+    margin-top:25px;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:2px solid #8b3dff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-left:auto;
+    margin-right:auto;
+    color:#8b3dff;
+    cursor:pointer;
+}
+
+.telegram-text{
+    margin-top:8px;
+    font-size:12px;
+    color:#888;
+}
+
+/* LOGIN OVERLAY */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000; /* HITAM JUGA */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
+}
+
+.overlay.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.login-box{
+    width:90%;
+    max-width:330px;
+    text-align:center;
+}
+
+.login-logo{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:2px solid #8b3dff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    margin-bottom:20px;
+    font-size:22px;
+    color:#8b3dff;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #222;
+    background:#111;
+    color:white;
+    outline:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+    <img src="https://files.catbox.moe/0smjtx.jpg" alt="Logo">
+</div>
+
+    <h1>ZERO EXPLOIT</h1>
+    <div class="subtitle"></div>
+
+    <button class="btn btn-primary" onclick="openLogin()">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+    </button>
+
+    <button class="btn btn-outline" onclick="goTelegram()">
+        <i class="fa-solid fa-cart-shopping"></i> Buy Account
+    </button>
+
+    <div class="telegram-circle" onclick="goTelegram()">
+        <i class="fa-brands fa-telegram"></i>
+    </div>
+    <div class="telegram-text">Join Our Community</div>
+
+</div>
+
+
+<!-- LOGIN OVERLAY -->
+<div class="overlay" id="overlay">
+
+    <div class="login-box">
+
+<div class="logo">
+    <img src="https://files.catbox.moe/0smjtx.jpg" alt="Logo">
+</div>
+
+        <h3 style="margin-bottom:10px;">Login</h3>
+
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+
+        <button class="btn btn-primary" onclick="login()">
+            <i class="fa-solid fa-lock"></i> Login
+        </button>
+
+        <button class="btn btn-outline" onclick="closeLogin()">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+const TELEGRAM_LINK = "https://t.me/zeroexploitreal";
+const SUCCESS_URL = "https://google.com";
+
+const validUser = "zero";
+const validPass = "x";
+
+function goTelegram(){
+    window.location.href = TELEGRAM_LINK;
+}
+
+function openLogin(){
+    document.getElementById("overlay").classList.add("active");
+}
+
+function closeLogin(){
+    document.getElementById("overlay").classList.remove("active");
+}
+
+function login(){
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === validUser && pass === validPass){
+        window.location.href = SUCCESS_URL;
+    } else {
+        alert("Username atau Password salah!");
+    }
+}
+</script>
+
+</body>
+</html>
